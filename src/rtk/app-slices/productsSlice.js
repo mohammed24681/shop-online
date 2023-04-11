@@ -4,7 +4,7 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchAllProducts",
   async () => {
     const data = await fetch(
-      "https://shop-online-seven.vercel.app/api/products"
+      "https://shop-online-sable.vercel.app/api/products"
     );
     const products = await data.json();
     return products;
@@ -15,7 +15,7 @@ export const filterByCategory = createAsyncThunk(
   "products/fetchByCategory",
   async (category) => {
     const data = await fetch(
-      `https://shop-online-seven.vercel.app/api/products/category/${category}`
+      `https://shop-online-sable.vercel.app/api/products/category/${category}`
     );
     const filterProducts = await data.json();
     return filterProducts;
@@ -26,7 +26,7 @@ export const addProduct = createAsyncThunk(
   "products/addProduct",
   async (product) => {
     const res = await fetch(
-      "https://shop-online-seven.vercel.app/api/products",
+      "https://shop-online-sable.vercel.app/api/products",
       {
         method: "POST",
         headers: {
@@ -44,7 +44,7 @@ export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (productId) => {
     const res = await fetch(
-      `https://shop-online-seven.vercel.app/api/products/${productId}`,
+      `https://shop-online-sable.vercel.app/api/products/${productId}`,
       {
         method: "DELETE",
       }
@@ -58,7 +58,7 @@ export const updateProduct = createAsyncThunk(
   "products/updateProduct",
   async (product) => {
     const res = await fetch(
-      `https://shop-online-seven.vercel.app/api/products/${product.id}`,
+      `https://shop-online-sable.vercel.app/api/products/${product.id}`,
       {
         method: "PATCH",
         headers: {

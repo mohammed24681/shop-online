@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 export const signUp = createAsyncThunk("user/signup", (userData) => {
   const data = axios
-    .post("https://shop-online-seven.vercel.app/api/users", userData)
+    .post("https://shop-online-sable.vercel.app/api/users", userData)
     .then((res) => {
       return res.data;
     });
@@ -15,7 +15,7 @@ export const signUp = createAsyncThunk("user/signup", (userData) => {
 
 export const login = createAsyncThunk("user/login", ({ email, password }) => {
   const data = axios
-    .get(`https://shop-online-seven.vercel.app/api/users/${email}/${password}`)
+    .get(`https://shop-online-sable.vercel.app/api/users/${email}/${password}`)
     .then((res) => {
       return res.data;
     });
@@ -28,7 +28,7 @@ export const restoreUserFromStorage = createAsyncThunk(
     const userId = JSON.parse(sessionStorage.getItem("userId"));
     if (!getState().user.loggedIn && userId !== null) {
       const data = axios
-        .get(`https://shop-online-seven.vercel.app/api/users/id/${userId}`)
+        .get(`https://shop-online-sable.vercel.app/api/users/id/${userId}`)
         .then((res) => {
           return res.data;
         });
@@ -79,7 +79,7 @@ const userSlice = createSlice({
             text: `Hello ${state.currentUserData.password}`,
           });
           axios.patch(
-            `https://shop-online-seven.vercel.app/api/users/id/${state.currentUserData.id}`,
+            `https://shop-online-sable.vercel.app/api/users/id/${state.currentUserData.id}`,
             state.currentUserData
           );
         }

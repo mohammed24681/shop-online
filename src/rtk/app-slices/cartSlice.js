@@ -6,7 +6,7 @@ export const fetchCartProducts = createAsyncThunk(
   (_, { getState }) => {
     const data = getState().user.loggedIn
       ? axios
-          .get("https://shop-online-seven.vercel.app/api/cart-products")
+          .get("https://shop-online-sable.vercel.app/api/cart-products")
           .then((res) => {
             return res.data;
           })
@@ -19,7 +19,7 @@ export const addProductToCart = createAsyncThunk(
   "cart/addProduct",
   (product) => {
     const data = axios
-      .post("https://shop-online-seven.vercel.app/api/cart-products", product)
+      .post("https://shop-online-sable.vercel.app/api/cart-products", product)
       .then((res) => {
         return res.data;
       });
@@ -32,7 +32,7 @@ export const deleteProductFromCart = createAsyncThunk(
   (prodId) => {
     const data = axios
       .delete(
-        `https://shop-online-seven.vercel.app/api/cart-products/${prodId}`
+        `https://shop-online-sable.vercel.app/api/cart-products/${prodId}`
       )
       .then((res) => {
         return res.data;
