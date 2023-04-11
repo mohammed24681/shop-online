@@ -4,11 +4,13 @@ import axios from "axios";
 export const fetchCartProducts = createAsyncThunk(
   "cart/fetchAllProducts",
   (_, { getState }) => {
-    const data = getState().user.loggedIn ? axios
-      .get("http://localhost:3000/api/cart-products")
-      .then((res) => {
-        return res.data;
-      }) : JSON.parse(localStorage.getItem("cart-products"));
+    const data = getState().user.loggedIn
+      ? axios
+          .get("http://https://shop-online-seven.vercel.app/api/cart-products")
+          .then((res) => {
+            return res.data;
+          })
+      : JSON.parse(localStorage.getItem("cart-products"));
     return data;
   }
 );
@@ -17,7 +19,10 @@ export const addProductToCart = createAsyncThunk(
   "cart/addProduct",
   (product) => {
     const data = axios
-      .post("http://localhost:3000/api/cart-products", product)
+      .post(
+        "http://https://shop-online-seven.vercel.app/api/cart-products",
+        product
+      )
       .then((res) => {
         return res.data;
       });
@@ -29,7 +34,9 @@ export const deleteProductFromCart = createAsyncThunk(
   "cart/deleteProduct",
   (prodId) => {
     const data = axios
-      .delete(`http://localhost:3000/api/cart-products/${prodId}`)
+      .delete(
+        `http://https://shop-online-seven.vercel.app/api/cart-products/${prodId}`
+      )
       .then((res) => {
         return res.data;
       });

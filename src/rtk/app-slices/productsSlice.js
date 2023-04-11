@@ -3,7 +3,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const fetchProducts = createAsyncThunk(
   "products/fetchAllProducts",
   async () => {
-    const data = await fetch("http://localhost:3000/api/products");
+    const data = await fetch(
+      "http://https://shop-online-seven.vercel.app/api/products"
+    );
     const products = await data.json();
     return products;
   }
@@ -13,7 +15,7 @@ export const filterByCategory = createAsyncThunk(
   "products/fetchByCategory",
   async (category) => {
     const data = await fetch(
-      `http://localhost:3000/api/products/category/${category}`
+      `http://https://shop-online-seven.vercel.app/api/products/category/${category}`
     );
     const filterProducts = await data.json();
     return filterProducts;
@@ -23,13 +25,16 @@ export const filterByCategory = createAsyncThunk(
 export const addProduct = createAsyncThunk(
   "products/addProduct",
   async (product) => {
-    const res = await fetch("http://localhost:3000/api/products", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(product),
-    });
+    const res = await fetch(
+      "http://https://shop-online-seven.vercel.app/api/products",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      }
+    );
     const data = await res.json();
     return data;
   }
@@ -38,9 +43,12 @@ export const addProduct = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (productId) => {
-    const res = await fetch(`http://localhost:3000/api/products/${productId}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `http://https://shop-online-seven.vercel.app/api/products/${productId}`,
+      {
+        method: "DELETE",
+      }
+    );
     const data = await res.json();
     return data;
   }
@@ -50,7 +58,7 @@ export const updateProduct = createAsyncThunk(
   "products/updateProduct",
   async (product) => {
     const res = await fetch(
-      `http://localhost:3000/api/products/${product.id}`,
+      `http://https://shop-online-seven.vercel.app/api/products/${product.id}`,
       {
         method: "PATCH",
         headers: {
