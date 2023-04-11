@@ -4,7 +4,7 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchAllProducts",
   async () => {
     const data = await fetch(
-      "http://https://shop-online-seven.vercel.app/api/products"
+      "https://shop-online-seven.vercel.app/api/products"
     );
     const products = await data.json();
     return products;
@@ -15,7 +15,7 @@ export const filterByCategory = createAsyncThunk(
   "products/fetchByCategory",
   async (category) => {
     const data = await fetch(
-      `http://https://shop-online-seven.vercel.app/api/products/category/${category}`
+      `https://shop-online-seven.vercel.app/api/products/category/${category}`
     );
     const filterProducts = await data.json();
     return filterProducts;
@@ -26,7 +26,7 @@ export const addProduct = createAsyncThunk(
   "products/addProduct",
   async (product) => {
     const res = await fetch(
-      "http://https://shop-online-seven.vercel.app/api/products",
+      "https://shop-online-seven.vercel.app/api/products",
       {
         method: "POST",
         headers: {
@@ -44,7 +44,7 @@ export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (productId) => {
     const res = await fetch(
-      `http://https://shop-online-seven.vercel.app/api/products/${productId}`,
+      `https://shop-online-seven.vercel.app/api/products/${productId}`,
       {
         method: "DELETE",
       }
@@ -58,7 +58,7 @@ export const updateProduct = createAsyncThunk(
   "products/updateProduct",
   async (product) => {
     const res = await fetch(
-      `http://https://shop-online-seven.vercel.app/api/products/${product.id}`,
+      `https://shop-online-seven.vercel.app/api/products/${product.id}`,
       {
         method: "PATCH",
         headers: {
@@ -129,11 +129,12 @@ const productsSlice = createSlice({
         );
         // console.log(state.products[0].id)
         state.products[index][key] = data.payload[key];
-      })
+      });
       alert("product is updated");
     });
   },
 });
 
 export default productsSlice.reducer;
-export const { changeProductStatus, changeUpdatingProduct } = productsSlice.actions;
+export const { changeProductStatus, changeUpdatingProduct } =
+  productsSlice.actions;
