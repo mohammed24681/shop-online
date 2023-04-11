@@ -46,7 +46,7 @@ export default function NavBar() {
             <Link href="/admin-dashboard">about</Link>
           </li>
         </ul>
-        <h1 className="font-head text-2xl md:text-[26px]">shop online</h1>
+        <h1 className="font-head text-xl md:text-[26px]">shop online</h1>
         <ul>
           <li>
             <Link href="/">
